@@ -1,0 +1,45 @@
+
+================================================================
+  REGRESSION SUMMARY
+================================================================
+TEST                 SEED   RESULT UVM_ERRORS
+----                 ----   ------ ----------
+new_test             1      PASS   0
+new_test             2      PASS   0
+new_test             3      PASS   0
+csr_test             1      PASS   0
+csr_test             2      PASS   0
+csr_test             3      PASS   0
+chip_disable_test    1      PASS   0
+chip_disable_test    2      PASS   0
+chip_disable_test    3      PASS   0
+b2b_test             1      PASS   0
+b2b_test             2      PASS   0
+b2b_test             3      PASS   0
+illegal_addr_test    1      FAIL   142
+illegal_addr_test    2      FAIL   147
+illegal_addr_test    3      FAIL   138
+reset_test           1      PASS   0
+reset_test           2      PASS   0
+reset_test           3      PASS   0
+
+Passed: 15  Failed: 3
+Failed logs (first errors of each):
+
+  logs/regress/illegal_addr_test_1.log  (142 errors)
+    130.0ns mem_sva.sv(49) [SVA] rdata=xxxxxxxx has X/Z after a read
+    130.0ns scoreboard.sv(125) [SCB] READ mismatch addr=30 expected data=0 actual data=xxxxxxxx
+    150.0ns mem_sva.sv(49) [SVA] rdata=xxxxxxxx has X/Z after a read
+    150.0ns scoreboard.sv(125) [SCB] READ mismatch addr=ff expected data=0 actual data=xxxxxxxx
+
+  logs/regress/illegal_addr_test_2.log  (147 errors)
+    130.0ns mem_sva.sv(49) [SVA] rdata=xxxxxxxx has X/Z after a read
+    130.0ns scoreboard.sv(125) [SCB] READ mismatch addr=30 expected data=0 actual data=xxxxxxxx
+    150.0ns mem_sva.sv(49) [SVA] rdata=xxxxxxxx has X/Z after a read
+    150.0ns scoreboard.sv(125) [SCB] READ mismatch addr=ff expected data=0 actual data=xxxxxxxx
+
+  logs/regress/illegal_addr_test_3.log  (138 errors)
+    130.0ns mem_sva.sv(49) [SVA] rdata=xxxxxxxx has X/Z after a read
+    130.0ns scoreboard.sv(125) [SCB] READ mismatch addr=30 expected data=0 actual data=xxxxxxxx
+    150.0ns mem_sva.sv(49) [SVA] rdata=xxxxxxxx has X/Z after a read
+    150.0ns scoreboard.sv(125) [SCB] READ mismatch addr=ff expected data=0 actual data=xxxxxxxx

@@ -1,0 +1,36 @@
+/*
++UVM_VERBOSITY=UVM_FULL
++UVM_TESTNAME=new_test 
++UVM_VERBOSITY=UVM_MEDIUM
+
++uvm_set_verbosity=*,_ALL_,UVM_LOW
++uvm_set_verbosity="*.seq*,_ALL_,UVM_LOW,time,0"
+
+ +UVM_TESTNAME=new_test 
+ 
+ +uvm_set_verbosity=*.iMon*,_ALL_,UVM_LOW,time,0 
+
+ +uvm_set_verbosity=uvm_test_top.env.m_agent.drvr,_ALL_,UVM_LOW,time,0
+
+ +uvm_set_verbosity=*.seq*,_ALL_,UVM_LOW,time,0
+ 
+ +uvm_set_verbosity=*.oMon*,_ALL_,UVM_LOW,time,0
+ 
+
+#below setting will make uvm_info inside the sequence not to display messages on screen
++uvm_set_action=*.seq*,_ALL_,UVM_INFO,UVM_NO_ACTION
+
++uvm_set_action=uvm_test_top.env.*,_ALL_,UVM_WARNING,UVM_NO_ACTION
++uvm_set_action=uvm_test_top,_ALL_,UVM_WARNING,UVM_NO_ACTION
+
+#below one changes UVM_ERROR to UVM_WARNING for all ID's
++uvm_set_severity=*,_ALL_,UVM_ERROR,UVM_WARNING
+#below one changes UVM_ERROR to UVM_INFO for all ID's
++uvm_set_severity="*,_ALL_,UVM_ERROR,UVM_INFO"
+
+below one controls the number of errors can be issued before simulation terminated.
++UVM_MAX_QUIT_COUNT=3   
+
+below one filters all UVM_INFO to not to print on screen, no action is taken.
++uvm_set_action=uvm_test_top.*,_ALL_,UVM_INFO,UVM_NO_ACTION
+*/

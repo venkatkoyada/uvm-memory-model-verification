@@ -1,0 +1,301 @@
+Command: /u/koyada/UVM_MEMORY_MODEL_FINAL_2/UVM_TB/./simv +UVM_TESTNAME=illegal_addr_test +ntb_random_seed=1 +UVM_VERBOSITY=UVM_MEDIUM +NO_DUMP -cm line+cond+branch+tgl+assert -cm_name illegal_addr_test_1 -l logs/regress/illegal_addr_test_1.log
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version V-2023.12-SP2_Full64; Runtime version V-2023.12-SP2_Full64;  Oct 12 21:49 2026
+UVM_INFO /pkgs/synopsys/2024/vcs/vcs/V-2023.12-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0.0ns: reporter [RNTST] Running test illegal_addr_test...
+UVM_INFO /pkgs/synopsys/2024/vcs/vcs/V-2023.12-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0.0ns: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------
+Name                       Type                    Size  Value
+--------------------------------------------------------------
+uvm_test_top               illegal_addr_test       -     @344 
+  env                      environment             -     @357 
+    cov_comp               coverage                -     @424 
+      analysis_imp         uvm_analysis_imp        -     @433 
+    m_agent                master_agent            -     @396 
+      ap                   uvm_analysis_port       -     @444 
+      drvr                 driver                  -     @591 
+        rsp_port           uvm_analysis_port       -     @610 
+        seq_item_port      uvm_seq_item_pull_port  -     @600 
+      iMon                 iMonitor                -     @620 
+        analysis_port      uvm_analysis_port       -     @629 
+      seqr                 sequencer               -     @454 
+        rsp_export         uvm_analysis_export     -     @463 
+        seq_item_export    uvm_seq_item_pull_imp   -     @581 
+        arbitration_queue  array                   0     -    
+        lock_queue         array                   0     -    
+        num_last_reqs      integral                32    'd1  
+        num_last_rsps      integral                32    'd1  
+    s_agent                slave_agent             -     @405 
+      oMon                 oMonitor                -     @655 
+        analysis_port      uvm_analysis_port       -     @664 
+      slave_ap             uvm_analysis_port       -     @645 
+    scb                    scoreboard              -     @414 
+      mon_inp              uvm_analysis_imp_inp    -     @674 
+      mon_outp             uvm_analysis_imp_outp   -     @684 
+--------------------------------------------------------------
+
+UVM_INFO reset_sequence.sv(14) @ 70.0ns: uvm_test_top.env.m_agent.seqr@@reset_sequence [RST_SEQ] Reset Transaction Completed
+UVM_INFO config_sequence.sv(15) @ 90.0ns: uvm_test_top.env.m_agent.seqr@@config_sequence [CONFIG_SEQ] Config CSR_WRITE sequence Transaction Completed 
+
+"mem_sva.sv", 48: top.dut_inst.sva_inst.RDATA_KNOWN: started at 110000ps failed at 130000ps
+	Offending '(!$isunknown(rdata))'
+UVM_ERROR mem_sva.sv(49) @ 130.0ns: reporter [SVA] rdata=xxxxxxxx has X/Z after a read
+UVM_ERROR scoreboard.sv(125) @ 130.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=30 expected data=0 actual data=xxxxxxxx
+"mem_sva.sv", 48: top.dut_inst.sva_inst.RDATA_KNOWN: started at 130000ps failed at 150000ps
+	Offending '(!$isunknown(rdata))'
+UVM_ERROR mem_sva.sv(49) @ 150.0ns: reporter [SVA] rdata=xxxxxxxx has X/Z after a read
+UVM_ERROR scoreboard.sv(125) @ 150.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=ff expected data=0 actual data=xxxxxxxx
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 190000ps failed at 190000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 190.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 190.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=40 expected=ERROR actual=OK
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 230000ps failed at 230000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 230.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 230.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=26 expected=ERROR actual=OK
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 270000ps failed at 270000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 270.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 270.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=20 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 310.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=30 expected data=0 actual data=11111111
+UVM_ERROR scoreboard.sv(125) @ 350.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=99 expected data=0 actual data=33333333
+UVM_ERROR scoreboard.sv(125) @ 370.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=99 expected data=0 actual data=33333333
+UVM_ERROR scoreboard.sv(125) @ 390.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=f4 expected data=0 actual data=33333333
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 1130000ps failed at 1130000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 1130.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 1130.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=f7 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 1170.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=d3 expected data=0 actual data=af79dbca
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 1210000ps failed at 1210000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 1210.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 1210.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=b9 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 1850.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=4e expected data=0 actual data=15cc203f
+UVM_ERROR scoreboard.sv(125) @ 1870.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=13 expected data=0 actual data=15cc203f
+UVM_ERROR scoreboard.sv(125) @ 1930.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=72 expected data=0 actual data=15cc203f
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 2190000ps failed at 2190000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 2190.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 2190.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=7d expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 2310.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=d3 expected data=0 actual data=d4248124
+UVM_ERROR scoreboard.sv(125) @ 2470.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=2b expected data=0 actual data=d4248124
+UVM_ERROR scoreboard.sv(125) @ 2530.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=ec expected data=0 actual data=d4248124
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 2890000ps failed at 2890000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 2890.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 2890.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=e0 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 2930.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=d1 expected data=0 actual data=b853eeee
+UVM_ERROR scoreboard.sv(125) @ 2950.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=72 expected data=0 actual data=b853eeee
+UVM_ERROR scoreboard.sv(125) @ 2970.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=bf expected data=0 actual data=b853eeee
+UVM_ERROR scoreboard.sv(125) @ 2990.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=f1 expected data=0 actual data=b853eeee
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 3210000ps failed at 3210000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 3210.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 3210.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=ef expected=ERROR actual=OK
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 3430000ps failed at 3430000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 3430.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 3430.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=47 expected=ERROR actual=OK
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 3530000ps failed at 3530000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 3530.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 3530.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=27 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 3630.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=51 expected data=0 actual data=70a5594
+UVM_ERROR scoreboard.sv(125) @ 3650.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=94 expected data=0 actual data=70a5594
+UVM_ERROR scoreboard.sv(125) @ 3730.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=61 expected data=0 actual data=e9811b75
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 4230000ps failed at 4230000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 4230.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 4230.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=9b expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 4830.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=4f expected data=0 actual data=1f774b93
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 5090000ps failed at 5090000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 5090.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 5090.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=25 expected=ERROR actual=OK
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 5210000ps failed at 5210000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 5210.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 5210.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=95 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 5310.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=3d expected data=0 actual data=13621e8
+UVM_ERROR scoreboard.sv(125) @ 5430.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=b7 expected data=0 actual data=13621e8
+UVM_ERROR scoreboard.sv(125) @ 5850.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=ee expected data=0 actual data=fe2e156d
+UVM_ERROR scoreboard.sv(125) @ 5870.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=e2 expected data=0 actual data=fe2e156d
+UVM_ERROR scoreboard.sv(125) @ 6070.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=e8 expected data=0 actual data=a7206898
+UVM_ERROR scoreboard.sv(125) @ 6210.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=7d expected data=0 actual data=6c5bbfe6
+UVM_ERROR scoreboard.sv(125) @ 6250.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=29 expected data=0 actual data=ffffffff
+UVM_ERROR scoreboard.sv(125) @ 6290.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=53 expected data=0 actual data=ffffffff
+UVM_ERROR scoreboard.sv(125) @ 6390.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=93 expected data=0 actual data=6c5bbfe6
+UVM_ERROR scoreboard.sv(125) @ 6430.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=d4 expected data=0 actual data=6c5bbfe6
+UVM_ERROR scoreboard.sv(125) @ 6730.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=c4 expected data=0 actual data=e9811b75
+UVM_ERROR scoreboard.sv(125) @ 6770.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=12 expected data=0 actual data=e9811b75
+UVM_ERROR scoreboard.sv(125) @ 6830.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=d7 expected data=0 actual data=e9811b75
+UVM_ERROR scoreboard.sv(125) @ 6850.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=df expected data=0 actual data=e9811b75
+UVM_ERROR scoreboard.sv(125) @ 7050.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=2d expected data=0 actual data=6c5bbfe6
+UVM_ERROR scoreboard.sv(125) @ 7210.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=c9 expected data=0 actual data=6c5bbfe6
+UVM_ERROR scoreboard.sv(125) @ 7230.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=8f expected data=0 actual data=6c5bbfe6
+UVM_ERROR scoreboard.sv(125) @ 7330.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=a7 expected data=0 actual data=6c5bbfe6
+UVM_ERROR scoreboard.sv(125) @ 7430.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=87 expected data=0 actual data=e1af80f1
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 7470000ps failed at 7470000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 7470.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 7470.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=61 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 7590.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=6a expected data=0 actual data=e1af80f1
+UVM_ERROR scoreboard.sv(125) @ 7690.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=83 expected data=0 actual data=7134de00
+UVM_ERROR scoreboard.sv(125) @ 7830.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=a8 expected data=0 actual data=8b0ca4ac
+UVM_ERROR scoreboard.sv(125) @ 8010.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=96 expected data=0 actual data=ed286f92
+UVM_ERROR scoreboard.sv(125) @ 8090.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=d0 expected data=0 actual data=40a4eaf8
+UVM_ERROR scoreboard.sv(125) @ 8210.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=28 expected data=0 actual data=abb554ee
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 8470000ps failed at 8470000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 8470.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 8470.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=b2 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 8890.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=50 expected data=0 actual data=ffffffff
+UVM_ERROR scoreboard.sv(125) @ 9030.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=86 expected data=0 actual data=a5d7c8da
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 9090000ps failed at 9090000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 9090.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 9090.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=bb expected=ERROR actual=OK
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 9130000ps failed at 9130000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 9130.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 9130.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=6c expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 9150.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=a1 expected data=0 actual data=a5d7c8da
+UVM_ERROR scoreboard.sv(125) @ 9230.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=c3 expected data=0 actual data=1
+UVM_ERROR scoreboard.sv(125) @ 9290.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=e9 expected data=0 actual data=1
+UVM_ERROR scoreboard.sv(125) @ 9310.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=17 expected data=0 actual data=1
+UVM_ERROR scoreboard.sv(125) @ 9370.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=50 expected data=0 actual data=ffffffff
+UVM_ERROR scoreboard.sv(125) @ 9850.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=1b expected data=0 actual data=814b1cd2
+UVM_ERROR scoreboard.sv(125) @ 9950.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=13 expected data=0 actual data=814b1cd2
+UVM_ERROR scoreboard.sv(125) @ 10390.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=f0 expected data=0 actual data=b605242b
+UVM_ERROR scoreboard.sv(125) @ 10610.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=e2 expected data=0 actual data=67400ed
+UVM_ERROR scoreboard.sv(125) @ 11150.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=e0 expected data=0 actual data=b605242b
+UVM_ERROR scoreboard.sv(125) @ 11190.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=c8 expected data=0 actual data=b605242b
+UVM_ERROR scoreboard.sv(125) @ 11330.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=76 expected data=0 actual data=96aaf746
+UVM_ERROR scoreboard.sv(125) @ 11390.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=13 expected data=0 actual data=ffffffff
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 11490000ps failed at 11490000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 11490.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 11490.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=32 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 11550.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=1a expected data=0 actual data=923e0bfe
+UVM_ERROR scoreboard.sv(125) @ 11610.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=25 expected data=0 actual data=923e0bfe
+UVM_ERROR scoreboard.sv(125) @ 11790.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=23 expected data=0 actual data=96aaf746
+UVM_ERROR scoreboard.sv(125) @ 11870.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=e3 expected data=0 actual data=ffd988da
+UVM_ERROR scoreboard.sv(125) @ 12030.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=a8 expected data=0 actual data=5f
+UVM_ERROR scoreboard.sv(125) @ 12050.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=90 expected data=0 actual data=5f
+UVM_ERROR scoreboard.sv(125) @ 12070.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=31 expected data=0 actual data=5f
+UVM_ERROR scoreboard.sv(125) @ 12170.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=80 expected data=0 actual data=923e0bfe
+UVM_ERROR scoreboard.sv(125) @ 12230.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=d5 expected data=0 actual data=923e0bfe
+UVM_ERROR scoreboard.sv(125) @ 12410.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=93 expected data=0 actual data=72662c38
+UVM_ERROR scoreboard.sv(125) @ 12470.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=66 expected data=0 actual data=72662c38
+UVM_ERROR scoreboard.sv(125) @ 12510.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=e1 expected data=0 actual data=72662c38
+UVM_ERROR scoreboard.sv(125) @ 12530.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=bf expected data=0 actual data=72662c38
+UVM_ERROR scoreboard.sv(125) @ 12610.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=ec expected data=0 actual data=e246564
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 12650000ps failed at 12650000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 12650.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 12650.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=46 expected=ERROR actual=OK
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 12670000ps failed at 12670000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 12670.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 12670.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=8c expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 12790.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=a6 expected data=0 actual data=b605242b
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 12930000ps failed at 12930000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 12930.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 12930.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=e0 expected=ERROR actual=OK
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 12950000ps failed at 12950000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 12950.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 12950.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=52 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 12970.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=4e expected data=0 actual data=b605242b
+UVM_ERROR scoreboard.sv(125) @ 13070.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=7e expected data=0 actual data=119fefaa
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 13130000ps failed at 13130000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 13130.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 13130.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=7e expected=ERROR actual=OK
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 13170000ps failed at 13170000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 13170.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 13170.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=c2 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 13390.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=ef expected data=0 actual data=b605242b
+UVM_ERROR scoreboard.sv(125) @ 13410.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=29 expected data=0 actual data=b605242b
+UVM_ERROR scoreboard.sv(125) @ 13670.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=b7 expected data=0 actual data=aff6d70a
+UVM_ERROR scoreboard.sv(125) @ 13690.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=15 expected data=0 actual data=aff6d70a
+UVM_ERROR scoreboard.sv(125) @ 13890.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=56 expected data=0 actual data=ff592d1e
+UVM_ERROR scoreboard.sv(125) @ 14010.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=22 expected data=0 actual data=ff592d1e
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 14110000ps failed at 14110000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 14110.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 14110.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=9f expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 14310.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=a6 expected data=0 actual data=f7b42bb3
+"mem_sva.sv", 56: top.dut_inst.sva_inst.RESP_ONLY_GOOD_WRITE: started at 14370000ps failed at 14370000ps
+	Offending '$past(good_write)'
+UVM_ERROR mem_sva.sv(57) @ 14370.0ns: reporter [SVA] response=1 but last cycle was not a good memory write
+UVM_ERROR scoreboard.sv(142) @ 14370.0ns: uvm_test_top.env.scb [SCB] WRITE response mismatch addr=56 expected=ERROR actual=OK
+UVM_ERROR scoreboard.sv(125) @ 14450.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=70 expected data=0 actual data=361ce846
+UVM_ERROR scoreboard.sv(125) @ 14630.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=2e expected data=0 actual data=72662c38
+UVM_ERROR scoreboard.sv(125) @ 14990.0ns: uvm_test_top.env.scb [SCB] READ mismatch addr=83 expected data=0 actual data=c625bb79
+UVM_INFO shutdown_sequence.sv(31) @ 15230.0ns: uvm_test_top.env.m_agent.seqr@@shutdown_sequence [SHUTDOWN_SEQ] csr_dropped_count=122
+UVM_INFO shutdown_sequence.sv(32) @ 15230.0ns: uvm_test_top.env.m_agent.seqr@@shutdown_sequence [SHUTDOWN_SEQ] total writes=137 total reads=149
+UVM_INFO shutdown_sequence.sv(33) @ 15230.0ns: uvm_test_top.env.m_agent.seqr@@shutdown_sequence [SHUTDOWN_SEQ] Shutdown Sequence CSR_READ Completed 
+UVM_INFO coverage.sv(96) @ 15330.0ns: uvm_test_top.env.cov_comp [COV] Functional coverage for this test = 90.36%
+UVM_INFO scoreboard.sv(162) @ 15330.0ns: uvm_test_top.env.scb [SCB] Scoreboard completed with matches=402 mismatches=114 (reads checked=255, write responses checked=261)
+UVM_INFO base_test.sv(70) @ 15330.0ns: uvm_test_top [FAIL] ******************************************
+UVM_INFO base_test.sv(71) @ 15330.0ns: uvm_test_top [FAIL] *********  illegal_addr_test : TEST FAILED  *********
+UVM_INFO base_test.sv(72) @ 15330.0ns: uvm_test_top [FAIL] ******************************************
+UVM_INFO /pkgs/synopsys/2024/vcs/vcs/V-2023.12-SP2/etc/uvm-1.2/base/uvm_report_server.svh(904) @ 15330.0ns: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   13
+UVM_WARNING :    0
+UVM_ERROR :  142
+UVM_FATAL :    0
+** Report counts by id
+[CONFIG_SEQ]     1
+[COV]     1
+[FAIL]     3
+[RNTST]     1
+[RST_SEQ]     1
+[SCB]   115
+[SHUTDOWN_SEQ]     3
+[SVA]    28
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+
+$finish called from file "/pkgs/synopsys/2024/vcs/vcs/V-2023.12-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time  15330.0ns
+"mem_sva.sv", 64: top.dut_inst.sva_inst.WR_WR_COVER, 767 attempts, 90 match
+"mem_sva.sv", 65: top.dut_inst.sva_inst.WR_RD_COVER, 767 attempts, 93 match
+"mem_sva.sv", 66: top.dut_inst.sva_inst.RD_RD_COVER, 767 attempts, 93 match
+"mem_sva.sv", 67: top.dut_inst.sva_inst.DROP_COVER, 767 attempts, 124 match
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, branch, tgl was monitored
+---------------------------------------------------------------------------
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 15330000 ps
+CPU Time:      0.530 seconds;       Data structure size:   0.6Mb
+Mon Oct 12 21:49:52 2026

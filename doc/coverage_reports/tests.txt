@@ -1,0 +1,29 @@
+Tests
+
+Total Coverage Summary 
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT GROUP  
+ 94.50 100.00 100.00  80.32 100.00  86.67 100.00 
+
+
+Total tests in report: 18
+-------------------------------------------------------------------------------
+Data from the following tests was used to generate this report
+simv/csr_test_2          
+simv/chip_disable_test_3 
+simv/b2b_test_3          
+simv/reset_test_2        
+simv/csr_test_1          
+simv/illegal_addr_test_3 
+simv/new_test_3          
+simv/reset_test_1        
+simv/reset_test_3        
+simv/chip_disable_test_2 
+simv/b2b_test_2          
+simv/illegal_addr_test_1 
+simv/csr_test_3          
+simv/new_test_1          
+simv/chip_disable_test_1 
+simv/b2b_test_1          
+simv/new_test_2          
+simv/illegal_addr_test_2 
+

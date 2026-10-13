@@ -1,0 +1,592 @@
+Command: /u/koyada/UVM_MEMORY_MODEL_FINAL_2/UVM_TB/./simv +UVM_TESTNAME=csr_test +ntb_random_seed=1 +UVM_VERBOSITY=UVM_HIGH +NO_DUMP -cm line+cond+branch+tgl+assert -cm_name csr_test_1 -l logs/regress/csr_test_1.log
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version V-2023.12-SP2_Full64; Runtime version V-2023.12-SP2_Full64;  Oct 12 22:12 2026
+UVM_INFO /pkgs/synopsys/2024/vcs/vcs/V-2023.12-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0.0ns: reporter [RNTST] Running test csr_test...
+UVM_INFO /pkgs/synopsys/2024/vcs/vcs/V-2023.12-SP2/etc/uvm-1.2/base/uvm_root.svh(589) @ 0.0ns: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------
+Name                       Type                    Size  Value
+--------------------------------------------------------------
+uvm_test_top               csr_test                -     @344 
+  env                      environment             -     @357 
+    cov_comp               coverage                -     @424 
+      analysis_imp         uvm_analysis_imp        -     @433 
+    m_agent                master_agent            -     @396 
+      ap                   uvm_analysis_port       -     @444 
+      drvr                 driver                  -     @591 
+        rsp_port           uvm_analysis_port       -     @610 
+        seq_item_port      uvm_seq_item_pull_port  -     @600 
+      iMon                 iMonitor                -     @620 
+        analysis_port      uvm_analysis_port       -     @629 
+      seqr                 sequencer               -     @454 
+        rsp_export         uvm_analysis_export     -     @463 
+        seq_item_export    uvm_seq_item_pull_imp   -     @581 
+        arbitration_queue  array                   0     -    
+        lock_queue         array                   0     -    
+        num_last_reqs      integral                32    'd1  
+        num_last_rsps      integral                32    'd1  
+    s_agent                slave_agent             -     @405 
+      oMon                 oMonitor                -     @655 
+        analysis_port      uvm_analysis_port       -     @664 
+      slave_ap             uvm_analysis_port       -     @645 
+    scb                    scoreboard              -     @414 
+      mon_inp              uvm_analysis_imp_inp    -     @674 
+      mon_outp             uvm_analysis_imp_outp   -     @684 
+--------------------------------------------------------------
+
+UVM_INFO base_sequence.sv(73) @ 0.0ns: uvm_test_top.env.m_agent.seqr@@reset_sequence [PKT_CNT] Packet count in sequence=200
+UVM_INFO driver.sv(120) @ 70.0ns: uvm_test_top.env.m_agent.drvr [RST] Reset transaction ended 
+UVM_INFO driver.sv(47) @ 70.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver RESET Transaction 0 Completed
+UVM_INFO reset_sequence.sv(14) @ 70.0ns: uvm_test_top.env.m_agent.seqr@@reset_sequence [RST_SEQ] Reset Transaction Completed
+UVM_INFO base_sequence.sv(73) @ 70.0ns: uvm_test_top.env.m_agent.seqr@@config_sequence [PKT_CNT] Packet count in sequence=200
+UVM_INFO iMonitor.sv(64) @ 90.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=20 data=1 
+UVM_INFO coverage.sv(92) @ 90.0ns: uvm_test_top.env.cov_comp [COV] Coverage=21.73%
+UVM_INFO driver.sv(99) @ 90.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=20 data=1
+UVM_INFO driver.sv(47) @ 90.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver CSR_WRITE Transaction 0 Completed
+UVM_INFO config_sequence.sv(15) @ 90.0ns: uvm_test_top.env.m_agent.seqr@@config_sequence [CONFIG_SEQ] Config CSR_WRITE sequence Transaction Completed 
+
+UVM_INFO base_sequence.sv(73) @ 90.0ns: uvm_test_top.env.m_agent.seqr@@csr_sequence [PKT_CNT] Packet count in sequence=200
+UVM_INFO iMonitor.sv(54) @ 110.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=18
+UVM_INFO coverage.sv(92) @ 110.0ns: uvm_test_top.env.cov_comp [COV] Coverage=44.29%
+UVM_INFO oMonitor.sv(68) @ 110.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=20 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 110.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=20 resp=ERROR
+UVM_INFO driver.sv(108) @ 110.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=18 
+UVM_INFO oMonitor.sv(58) @ 130.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=18 data=0 
+UVM_INFO scoreboard.sv(129) @ 130.0ns: uvm_test_top.env.scb [SCB] READ match addr=18 data=0
+UVM_INFO driver.sv(130) @ 130.0ns: uvm_test_top.env.m_agent.drvr [CSR_RD] Configration READ transaction ended addr=18 data=0
+UVM_INFO driver.sv(47) @ 130.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver CSR_READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 150.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=20
+UVM_INFO coverage.sv(92) @ 150.0ns: uvm_test_top.env.cov_comp [COV] Coverage=45.54%
+UVM_INFO driver.sv(108) @ 150.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=20 
+UVM_INFO oMonitor.sv(58) @ 170.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=20 data=1 
+UVM_INFO scoreboard.sv(129) @ 170.0ns: uvm_test_top.env.scb [SCB] READ match addr=20 data=1
+UVM_INFO driver.sv(130) @ 170.0ns: uvm_test_top.env.m_agent.drvr [CSR_RD] Configration READ transaction ended addr=20 data=1
+UVM_INFO driver.sv(47) @ 170.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver CSR_READ Transaction 0 Completed
+UVM_INFO csr_sequence.sv(16) @ 170.0ns: uvm_test_top.env.m_agent.seqr@@csr_sequence [CSR_SEQ] chip enable reg = 1
+UVM_INFO iMonitor.sv(54) @ 190.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 190.0ns: uvm_test_top.env.cov_comp [COV] Coverage=49.76%
+UVM_INFO driver.sv(108) @ 190.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO oMonitor.sv(58) @ 210.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=0 
+UVM_INFO scoreboard.sv(129) @ 210.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=0
+UVM_INFO driver.sv(130) @ 210.0ns: uvm_test_top.env.m_agent.drvr [CSR_RD] Configration READ transaction ended addr=24 data=0
+UVM_INFO driver.sv(47) @ 210.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver CSR_READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 230.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=26
+UVM_INFO coverage.sv(92) @ 230.0ns: uvm_test_top.env.cov_comp [COV] Coverage=53.99%
+UVM_INFO driver.sv(108) @ 230.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=26 
+UVM_INFO oMonitor.sv(58) @ 250.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=26 data=0 
+UVM_INFO scoreboard.sv(129) @ 250.0ns: uvm_test_top.env.scb [SCB] READ match addr=26 data=0
+UVM_INFO driver.sv(130) @ 250.0ns: uvm_test_top.env.m_agent.drvr [CSR_RD] Configration READ transaction ended addr=26 data=0
+UVM_INFO driver.sv(47) @ 250.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver CSR_READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 270.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=0 
+UVM_INFO coverage.sv(92) @ 270.0ns: uvm_test_top.env.cov_comp [COV] Coverage=59.40%
+UVM_INFO driver.sv(99) @ 270.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=0
+UVM_INFO driver.sv(47) @ 270.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 290.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 290.0ns: uvm_test_top.env.cov_comp [COV] Coverage=59.40%
+UVM_INFO oMonitor.sv(68) @ 290.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 290.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(108) @ 290.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 290.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 310.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=ffffffff 
+UVM_INFO coverage.sv(92) @ 310.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(58) @ 310.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=0 
+UVM_INFO scoreboard.sv(129) @ 310.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=0
+UVM_INFO driver.sv(99) @ 310.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=ffffffff
+UVM_INFO driver.sv(47) @ 310.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 330.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 330.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(68) @ 330.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 330.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(108) @ 330.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 330.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 350.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=a5a5a5a5 
+UVM_INFO coverage.sv(92) @ 350.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(58) @ 350.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=ffffffff 
+UVM_INFO scoreboard.sv(129) @ 350.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=ffffffff
+UVM_INFO driver.sv(99) @ 350.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=a5a5a5a5
+UVM_INFO driver.sv(47) @ 350.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 370.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 370.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(68) @ 370.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 370.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(108) @ 370.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 370.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 390.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=5a5a5a5a 
+UVM_INFO coverage.sv(92) @ 390.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(58) @ 390.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=a5a5a5a5 
+UVM_INFO scoreboard.sv(129) @ 390.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=a5a5a5a5
+UVM_INFO driver.sv(99) @ 390.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=5a5a5a5a
+UVM_INFO driver.sv(47) @ 390.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 410.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 410.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(68) @ 410.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 410.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(108) @ 410.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 410.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 430.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=c96d45b2 
+UVM_INFO coverage.sv(92) @ 430.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(58) @ 430.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=5a5a5a5a 
+UVM_INFO scoreboard.sv(129) @ 430.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=5a5a5a5a
+UVM_INFO driver.sv(99) @ 430.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=c96d45b2
+UVM_INFO driver.sv(47) @ 430.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 450.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 450.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(68) @ 450.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 450.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(108) @ 450.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 450.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 470.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=a81c7334 
+UVM_INFO coverage.sv(92) @ 470.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(58) @ 470.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=c96d45b2 
+UVM_INFO scoreboard.sv(129) @ 470.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=c96d45b2
+UVM_INFO driver.sv(99) @ 470.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=a81c7334
+UVM_INFO driver.sv(47) @ 470.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 490.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 490.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(68) @ 490.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 490.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(108) @ 490.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 490.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 510.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=47e47fa5 
+UVM_INFO coverage.sv(92) @ 510.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(58) @ 510.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=a81c7334 
+UVM_INFO scoreboard.sv(129) @ 510.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=a81c7334
+UVM_INFO driver.sv(99) @ 510.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=47e47fa5
+UVM_INFO driver.sv(47) @ 510.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 530.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 530.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(68) @ 530.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 530.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(108) @ 530.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 530.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 550.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=43308091 
+UVM_INFO coverage.sv(92) @ 550.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(58) @ 550.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=47e47fa5 
+UVM_INFO scoreboard.sv(129) @ 550.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=47e47fa5
+UVM_INFO driver.sv(99) @ 550.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=43308091
+UVM_INFO driver.sv(47) @ 550.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 570.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 570.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(68) @ 570.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 570.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(108) @ 570.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 570.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 590.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=fe06e99b 
+UVM_INFO coverage.sv(92) @ 590.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(58) @ 590.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=43308091 
+UVM_INFO scoreboard.sv(129) @ 590.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=43308091
+UVM_INFO driver.sv(99) @ 590.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=fe06e99b
+UVM_INFO driver.sv(47) @ 590.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 610.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 610.0ns: uvm_test_top.env.cov_comp [COV] Coverage=70.24%
+UVM_INFO oMonitor.sv(68) @ 610.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 610.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(108) @ 610.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 610.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 630.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=18 data=ffffffff 
+UVM_INFO coverage.sv(92) @ 630.0ns: uvm_test_top.env.cov_comp [COV] Coverage=71.49%
+UVM_INFO oMonitor.sv(58) @ 630.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=fe06e99b 
+UVM_INFO scoreboard.sv(129) @ 630.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=fe06e99b
+UVM_INFO driver.sv(99) @ 630.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=18 data=ffffffff
+UVM_INFO driver.sv(47) @ 630.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 650.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=26 data=12345678 
+UVM_INFO coverage.sv(92) @ 650.0ns: uvm_test_top.env.cov_comp [COV] Coverage=75.24%
+UVM_INFO oMonitor.sv(68) @ 650.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=18 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 650.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=18 resp=ERROR
+UVM_INFO driver.sv(99) @ 650.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=26 data=12345678
+UVM_INFO driver.sv(47) @ 650.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 670.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=18
+UVM_INFO coverage.sv(92) @ 670.0ns: uvm_test_top.env.cov_comp [COV] Coverage=75.24%
+UVM_INFO oMonitor.sv(68) @ 670.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=26 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 670.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=26 resp=ERROR
+UVM_INFO driver.sv(108) @ 670.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=18 
+UVM_INFO driver.sv(47) @ 670.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 690.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=26
+UVM_INFO coverage.sv(92) @ 690.0ns: uvm_test_top.env.cov_comp [COV] Coverage=77.74%
+UVM_INFO oMonitor.sv(58) @ 690.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=18 data=0 
+UVM_INFO scoreboard.sv(129) @ 690.0ns: uvm_test_top.env.scb [SCB] READ match addr=18 data=0
+UVM_INFO driver.sv(108) @ 690.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=26 
+UVM_INFO driver.sv(47) @ 690.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 710.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=0 data=12846a4d 
+UVM_INFO coverage.sv(92) @ 710.0ns: uvm_test_top.env.cov_comp [COV] Coverage=82.38%
+UVM_INFO oMonitor.sv(58) @ 710.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=26 data=2 
+UVM_INFO scoreboard.sv(129) @ 710.0ns: uvm_test_top.env.scb [SCB] READ match addr=26 data=2
+UVM_INFO driver.sv(99) @ 710.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=0 data=12846a4d
+UVM_INFO driver.sv(47) @ 710.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 730.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=1 data=d928c300 
+UVM_INFO coverage.sv(92) @ 730.0ns: uvm_test_top.env.cov_comp [COV] Coverage=82.86%
+UVM_INFO oMonitor.sv(68) @ 730.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=0 resp=OK
+UVM_INFO scoreboard.sv(146) @ 730.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=0 resp=OK
+UVM_INFO driver.sv(99) @ 730.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=1 data=d928c300
+UVM_INFO driver.sv(47) @ 730.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 750.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=2 data=b3f77a0a 
+UVM_INFO coverage.sv(92) @ 750.0ns: uvm_test_top.env.cov_comp [COV] Coverage=83.33%
+UVM_INFO oMonitor.sv(68) @ 750.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=1 resp=OK
+UVM_INFO scoreboard.sv(146) @ 750.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=1 resp=OK
+UVM_INFO driver.sv(99) @ 750.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=2 data=b3f77a0a
+UVM_INFO driver.sv(47) @ 750.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 770.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=3 data=40e81f34 
+UVM_INFO coverage.sv(92) @ 770.0ns: uvm_test_top.env.cov_comp [COV] Coverage=83.81%
+UVM_INFO oMonitor.sv(68) @ 770.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=2 resp=OK
+UVM_INFO scoreboard.sv(146) @ 770.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=2 resp=OK
+UVM_INFO driver.sv(99) @ 770.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=3 data=40e81f34
+UVM_INFO driver.sv(47) @ 770.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 790.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=4 data=92f1ae61 
+UVM_INFO coverage.sv(92) @ 790.0ns: uvm_test_top.env.cov_comp [COV] Coverage=84.29%
+UVM_INFO oMonitor.sv(68) @ 790.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=3 resp=OK
+UVM_INFO scoreboard.sv(146) @ 790.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=3 resp=OK
+UVM_INFO driver.sv(99) @ 790.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=4 data=92f1ae61
+UVM_INFO driver.sv(47) @ 790.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 810.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=5 data=204e8d75 
+UVM_INFO coverage.sv(92) @ 810.0ns: uvm_test_top.env.cov_comp [COV] Coverage=84.76%
+UVM_INFO oMonitor.sv(68) @ 810.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=4 resp=OK
+UVM_INFO scoreboard.sv(146) @ 810.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=4 resp=OK
+UVM_INFO driver.sv(99) @ 810.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=5 data=204e8d75
+UVM_INFO driver.sv(47) @ 810.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 830.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=6 data=10fa954b 
+UVM_INFO coverage.sv(92) @ 830.0ns: uvm_test_top.env.cov_comp [COV] Coverage=85.24%
+UVM_INFO oMonitor.sv(68) @ 830.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=5 resp=OK
+UVM_INFO scoreboard.sv(146) @ 830.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=5 resp=OK
+UVM_INFO driver.sv(99) @ 830.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=6 data=10fa954b
+UVM_INFO driver.sv(47) @ 830.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 850.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=7 data=b60453ea 
+UVM_INFO coverage.sv(92) @ 850.0ns: uvm_test_top.env.cov_comp [COV] Coverage=85.71%
+UVM_INFO oMonitor.sv(68) @ 850.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=6 resp=OK
+UVM_INFO scoreboard.sv(146) @ 850.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=6 resp=OK
+UVM_INFO driver.sv(99) @ 850.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=7 data=b60453ea
+UVM_INFO driver.sv(47) @ 850.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 870.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=8 data=9470d5e5 
+UVM_INFO coverage.sv(92) @ 870.0ns: uvm_test_top.env.cov_comp [COV] Coverage=86.19%
+UVM_INFO oMonitor.sv(68) @ 870.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=7 resp=OK
+UVM_INFO scoreboard.sv(146) @ 870.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=7 resp=OK
+UVM_INFO driver.sv(99) @ 870.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=8 data=9470d5e5
+UVM_INFO driver.sv(47) @ 870.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 890.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=9 data=e25497b7 
+UVM_INFO coverage.sv(92) @ 890.0ns: uvm_test_top.env.cov_comp [COV] Coverage=86.67%
+UVM_INFO oMonitor.sv(68) @ 890.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=8 resp=OK
+UVM_INFO scoreboard.sv(146) @ 890.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=8 resp=OK
+UVM_INFO driver.sv(99) @ 890.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=9 data=e25497b7
+UVM_INFO driver.sv(47) @ 890.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 910.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=a data=13f04531 
+UVM_INFO coverage.sv(92) @ 910.0ns: uvm_test_top.env.cov_comp [COV] Coverage=87.14%
+UVM_INFO oMonitor.sv(68) @ 910.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=9 resp=OK
+UVM_INFO scoreboard.sv(146) @ 910.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=9 resp=OK
+UVM_INFO driver.sv(99) @ 910.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=a data=13f04531
+UVM_INFO driver.sv(47) @ 910.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 930.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=b data=ae701794 
+UVM_INFO coverage.sv(92) @ 930.0ns: uvm_test_top.env.cov_comp [COV] Coverage=87.62%
+UVM_INFO oMonitor.sv(68) @ 930.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=a resp=OK
+UVM_INFO scoreboard.sv(146) @ 930.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=a resp=OK
+UVM_INFO driver.sv(99) @ 930.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=b data=ae701794
+UVM_INFO driver.sv(47) @ 930.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 950.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=c data=a8c8cd8a 
+UVM_INFO coverage.sv(92) @ 950.0ns: uvm_test_top.env.cov_comp [COV] Coverage=88.10%
+UVM_INFO oMonitor.sv(68) @ 950.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=b resp=OK
+UVM_INFO scoreboard.sv(146) @ 950.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=b resp=OK
+UVM_INFO driver.sv(99) @ 950.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=c data=a8c8cd8a
+UVM_INFO driver.sv(47) @ 950.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 970.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=d data=ed1261c1 
+UVM_INFO coverage.sv(92) @ 970.0ns: uvm_test_top.env.cov_comp [COV] Coverage=88.57%
+UVM_INFO oMonitor.sv(68) @ 970.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=c resp=OK
+UVM_INFO scoreboard.sv(146) @ 970.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=c resp=OK
+UVM_INFO driver.sv(99) @ 970.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=d data=ed1261c1
+UVM_INFO driver.sv(47) @ 970.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 990.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=e data=dfa391e7 
+UVM_INFO coverage.sv(92) @ 990.0ns: uvm_test_top.env.cov_comp [COV] Coverage=89.05%
+UVM_INFO oMonitor.sv(68) @ 990.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=d resp=OK
+UVM_INFO scoreboard.sv(146) @ 990.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=d resp=OK
+UVM_INFO driver.sv(99) @ 990.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=e data=dfa391e7
+UVM_INFO driver.sv(47) @ 990.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 1010.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=f data=96238dcf 
+UVM_INFO coverage.sv(92) @ 1010.0ns: uvm_test_top.env.cov_comp [COV] Coverage=89.52%
+UVM_INFO oMonitor.sv(68) @ 1010.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=e resp=OK
+UVM_INFO scoreboard.sv(146) @ 1010.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=e resp=OK
+UVM_INFO driver.sv(99) @ 1010.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=f data=96238dcf
+UVM_INFO driver.sv(47) @ 1010.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1030.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=0
+UVM_INFO coverage.sv(92) @ 1030.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(68) @ 1030.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=f resp=OK
+UVM_INFO scoreboard.sv(146) @ 1030.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=f resp=OK
+UVM_INFO driver.sv(108) @ 1030.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=0 
+UVM_INFO driver.sv(47) @ 1030.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1050.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=1
+UVM_INFO coverage.sv(92) @ 1050.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1050.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=0 data=12846a4d 
+UVM_INFO scoreboard.sv(129) @ 1050.0ns: uvm_test_top.env.scb [SCB] READ match addr=0 data=12846a4d
+UVM_INFO driver.sv(108) @ 1050.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=1 
+UVM_INFO driver.sv(47) @ 1050.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1070.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=2
+UVM_INFO coverage.sv(92) @ 1070.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1070.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=1 data=d928c300 
+UVM_INFO scoreboard.sv(129) @ 1070.0ns: uvm_test_top.env.scb [SCB] READ match addr=1 data=d928c300
+UVM_INFO driver.sv(108) @ 1070.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=2 
+UVM_INFO driver.sv(47) @ 1070.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1090.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=3
+UVM_INFO coverage.sv(92) @ 1090.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1090.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=2 data=b3f77a0a 
+UVM_INFO scoreboard.sv(129) @ 1090.0ns: uvm_test_top.env.scb [SCB] READ match addr=2 data=b3f77a0a
+UVM_INFO driver.sv(108) @ 1090.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=3 
+UVM_INFO driver.sv(47) @ 1090.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1110.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=4
+UVM_INFO coverage.sv(92) @ 1110.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1110.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=3 data=40e81f34 
+UVM_INFO scoreboard.sv(129) @ 1110.0ns: uvm_test_top.env.scb [SCB] READ match addr=3 data=40e81f34
+UVM_INFO driver.sv(108) @ 1110.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=4 
+UVM_INFO driver.sv(47) @ 1110.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1130.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=5
+UVM_INFO coverage.sv(92) @ 1130.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1130.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=4 data=92f1ae61 
+UVM_INFO scoreboard.sv(129) @ 1130.0ns: uvm_test_top.env.scb [SCB] READ match addr=4 data=92f1ae61
+UVM_INFO driver.sv(108) @ 1130.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=5 
+UVM_INFO driver.sv(47) @ 1130.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1150.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=6
+UVM_INFO coverage.sv(92) @ 1150.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1150.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=5 data=204e8d75 
+UVM_INFO scoreboard.sv(129) @ 1150.0ns: uvm_test_top.env.scb [SCB] READ match addr=5 data=204e8d75
+UVM_INFO driver.sv(108) @ 1150.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=6 
+UVM_INFO driver.sv(47) @ 1150.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1170.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=7
+UVM_INFO coverage.sv(92) @ 1170.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1170.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=6 data=10fa954b 
+UVM_INFO scoreboard.sv(129) @ 1170.0ns: uvm_test_top.env.scb [SCB] READ match addr=6 data=10fa954b
+UVM_INFO driver.sv(108) @ 1170.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=7 
+UVM_INFO driver.sv(47) @ 1170.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1190.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=8
+UVM_INFO coverage.sv(92) @ 1190.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1190.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=7 data=b60453ea 
+UVM_INFO scoreboard.sv(129) @ 1190.0ns: uvm_test_top.env.scb [SCB] READ match addr=7 data=b60453ea
+UVM_INFO driver.sv(108) @ 1190.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=8 
+UVM_INFO driver.sv(47) @ 1190.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1210.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=9
+UVM_INFO coverage.sv(92) @ 1210.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1210.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=8 data=9470d5e5 
+UVM_INFO scoreboard.sv(129) @ 1210.0ns: uvm_test_top.env.scb [SCB] READ match addr=8 data=9470d5e5
+UVM_INFO driver.sv(108) @ 1210.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=9 
+UVM_INFO driver.sv(47) @ 1210.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1230.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=a
+UVM_INFO coverage.sv(92) @ 1230.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1230.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=9 data=e25497b7 
+UVM_INFO scoreboard.sv(129) @ 1230.0ns: uvm_test_top.env.scb [SCB] READ match addr=9 data=e25497b7
+UVM_INFO driver.sv(108) @ 1230.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=a 
+UVM_INFO driver.sv(47) @ 1230.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1250.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=b
+UVM_INFO coverage.sv(92) @ 1250.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1250.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=a data=13f04531 
+UVM_INFO scoreboard.sv(129) @ 1250.0ns: uvm_test_top.env.scb [SCB] READ match addr=a data=13f04531
+UVM_INFO driver.sv(108) @ 1250.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=b 
+UVM_INFO driver.sv(47) @ 1250.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1270.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=c
+UVM_INFO coverage.sv(92) @ 1270.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1270.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=b data=ae701794 
+UVM_INFO scoreboard.sv(129) @ 1270.0ns: uvm_test_top.env.scb [SCB] READ match addr=b data=ae701794
+UVM_INFO driver.sv(108) @ 1270.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=c 
+UVM_INFO driver.sv(47) @ 1270.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1290.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=d
+UVM_INFO coverage.sv(92) @ 1290.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1290.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=c data=a8c8cd8a 
+UVM_INFO scoreboard.sv(129) @ 1290.0ns: uvm_test_top.env.scb [SCB] READ match addr=c data=a8c8cd8a
+UVM_INFO driver.sv(108) @ 1290.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=d 
+UVM_INFO driver.sv(47) @ 1290.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1310.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=e
+UVM_INFO coverage.sv(92) @ 1310.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1310.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=d data=ed1261c1 
+UVM_INFO scoreboard.sv(129) @ 1310.0ns: uvm_test_top.env.scb [SCB] READ match addr=d data=ed1261c1
+UVM_INFO driver.sv(108) @ 1310.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=e 
+UVM_INFO driver.sv(47) @ 1310.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1330.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=f
+UVM_INFO coverage.sv(92) @ 1330.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1330.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=e data=dfa391e7 
+UVM_INFO scoreboard.sv(129) @ 1330.0ns: uvm_test_top.env.scb [SCB] READ match addr=e data=dfa391e7
+UVM_INFO driver.sv(108) @ 1330.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=f 
+UVM_INFO driver.sv(47) @ 1330.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1350.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=18
+UVM_INFO coverage.sv(92) @ 1350.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1350.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=f data=96238dcf 
+UVM_INFO scoreboard.sv(129) @ 1350.0ns: uvm_test_top.env.scb [SCB] READ match addr=f data=96238dcf
+UVM_INFO driver.sv(108) @ 1350.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=18 
+UVM_INFO driver.sv(47) @ 1350.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 1370.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=20 data=1ff 
+UVM_INFO coverage.sv(92) @ 1370.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1370.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=18 data=100010 
+UVM_INFO scoreboard.sv(129) @ 1370.0ns: uvm_test_top.env.scb [SCB] READ match addr=18 data=100010
+UVM_INFO driver.sv(99) @ 1370.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=20 data=1ff
+UVM_INFO driver.sv(47) @ 1370.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1390.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=20
+UVM_INFO coverage.sv(92) @ 1390.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(68) @ 1390.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=20 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 1390.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=20 resp=ERROR
+UVM_INFO driver.sv(108) @ 1390.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=20 
+UVM_INFO driver.sv(47) @ 1390.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 1410.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=20 data=81 
+UVM_INFO coverage.sv(92) @ 1410.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1410.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=20 data=ff 
+UVM_INFO scoreboard.sv(129) @ 1410.0ns: uvm_test_top.env.scb [SCB] READ match addr=20 data=ff
+UVM_INFO driver.sv(99) @ 1410.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=20 data=81
+UVM_INFO driver.sv(47) @ 1410.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1430.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=20
+UVM_INFO coverage.sv(92) @ 1430.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(68) @ 1430.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=20 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 1430.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=20 resp=ERROR
+UVM_INFO driver.sv(108) @ 1430.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=20 
+UVM_INFO driver.sv(47) @ 1430.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 1450.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=20 data=0 
+UVM_INFO coverage.sv(92) @ 1450.0ns: uvm_test_top.env.cov_comp [COV] Coverage=90.36%
+UVM_INFO oMonitor.sv(58) @ 1450.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=20 data=81 
+UVM_INFO scoreboard.sv(129) @ 1450.0ns: uvm_test_top.env.scb [SCB] READ match addr=20 data=81
+UVM_INFO driver.sv(99) @ 1450.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=20 data=0
+UVM_INFO driver.sv(47) @ 1450.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1470.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=18
+UVM_INFO coverage.sv(92) @ 1470.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(68) @ 1470.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=20 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 1470.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=20 resp=ERROR
+UVM_INFO driver.sv(108) @ 1470.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=18 
+UVM_INFO driver.sv(47) @ 1470.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1490.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=20
+UVM_INFO coverage.sv(92) @ 1490.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(58) @ 1490.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=18 data=zzzzzzzz 
+UVM_INFO scoreboard.sv(129) @ 1490.0ns: uvm_test_top.env.scb [SCB] READ match addr=18 data=zzzzzzzz
+UVM_INFO driver.sv(108) @ 1490.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=20 
+UVM_INFO driver.sv(47) @ 1490.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1510.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 1510.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(58) @ 1510.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=20 data=zzzzzzzz 
+UVM_INFO scoreboard.sv(129) @ 1510.0ns: uvm_test_top.env.scb [SCB] READ match addr=20 data=zzzzzzzz
+UVM_INFO driver.sv(108) @ 1510.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 1510.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1530.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=26
+UVM_INFO coverage.sv(92) @ 1530.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(58) @ 1530.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=zzzzzzzz 
+UVM_INFO scoreboard.sv(129) @ 1530.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=zzzzzzzz
+UVM_INFO driver.sv(108) @ 1530.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=26 
+UVM_INFO driver.sv(47) @ 1530.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 1550.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=24 data=deadbeef 
+UVM_INFO coverage.sv(92) @ 1550.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(58) @ 1550.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=26 data=zzzzzzzz 
+UVM_INFO scoreboard.sv(129) @ 1550.0ns: uvm_test_top.env.scb [SCB] READ match addr=26 data=zzzzzzzz
+UVM_INFO driver.sv(99) @ 1550.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=24 data=deadbeef
+UVM_INFO driver.sv(47) @ 1550.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 1570.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=18 data=1 
+UVM_INFO coverage.sv(92) @ 1570.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(68) @ 1570.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=24 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 1570.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=24 resp=ERROR
+UVM_INFO driver.sv(99) @ 1570.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=18 data=1
+UVM_INFO driver.sv(47) @ 1570.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 1590.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=26 data=1 
+UVM_INFO coverage.sv(92) @ 1590.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(68) @ 1590.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=18 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 1590.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=18 resp=ERROR
+UVM_INFO driver.sv(99) @ 1590.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=26 data=1
+UVM_INFO driver.sv(47) @ 1590.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(64) @ 1610.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] WRITE addr=20 data=1 
+UVM_INFO coverage.sv(92) @ 1610.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(68) @ 1610.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=26 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 1610.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=26 resp=ERROR
+UVM_INFO driver.sv(99) @ 1610.0ns: uvm_test_top.env.m_agent.drvr [DRV_WE] Write transaction ended with addr=20 data=1
+UVM_INFO driver.sv(47) @ 1610.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver WRITE Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1630.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=24
+UVM_INFO coverage.sv(92) @ 1630.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(68) @ 1630.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] WRITE addr=20 resp=ERROR
+UVM_INFO scoreboard.sv(146) @ 1630.0ns: uvm_test_top.env.scb [SCB] WRITE response match addr=20 resp=ERROR
+UVM_INFO driver.sv(108) @ 1630.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=24 
+UVM_INFO driver.sv(47) @ 1630.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1650.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=26
+UVM_INFO coverage.sv(92) @ 1650.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(58) @ 1650.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=24 data=deadbeef 
+UVM_INFO scoreboard.sv(129) @ 1650.0ns: uvm_test_top.env.scb [SCB] READ match addr=24 data=deadbeef
+UVM_INFO driver.sv(108) @ 1650.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=26 
+UVM_INFO driver.sv(47) @ 1650.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1670.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=18
+UVM_INFO coverage.sv(92) @ 1670.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO oMonitor.sv(58) @ 1670.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=26 data=4 
+UVM_INFO scoreboard.sv(129) @ 1670.0ns: uvm_test_top.env.scb [SCB] READ match addr=26 data=4
+UVM_INFO driver.sv(108) @ 1670.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=18 
+UVM_INFO driver.sv(47) @ 1670.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver READ Transaction 0 Completed
+UVM_INFO oMonitor.sv(58) @ 1690.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=18 data=100010 
+UVM_INFO scoreboard.sv(129) @ 1690.0ns: uvm_test_top.env.scb [SCB] READ match addr=18 data=100010
+UVM_INFO base_sequence.sv(73) @ 1770.0ns: uvm_test_top.env.m_agent.seqr@@shutdown_sequence [PKT_CNT] Packet count in sequence=200
+UVM_INFO iMonitor.sv(54) @ 1810.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=26
+UVM_INFO coverage.sv(92) @ 1810.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO driver.sv(108) @ 1810.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=26 
+UVM_INFO oMonitor.sv(58) @ 1830.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=26 data=4 
+UVM_INFO scoreboard.sv(129) @ 1830.0ns: uvm_test_top.env.scb [SCB] READ match addr=26 data=4
+UVM_INFO driver.sv(130) @ 1830.0ns: uvm_test_top.env.m_agent.drvr [CSR_RD] Configration READ transaction ended addr=26 data=4
+UVM_INFO driver.sv(47) @ 1830.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver CSR_READ Transaction 0 Completed
+UVM_INFO iMonitor.sv(54) @ 1850.0ns: uvm_test_top.env.m_agent.iMon [iMonitor] READ addr=18
+UVM_INFO coverage.sv(92) @ 1850.0ns: uvm_test_top.env.cov_comp [COV] Coverage=91.19%
+UVM_INFO driver.sv(108) @ 1850.0ns: uvm_test_top.env.m_agent.drvr [RD_E] Read transaction ended with addr=18 
+UVM_INFO oMonitor.sv(58) @ 1870.0ns: uvm_test_top.env.s_agent.oMon [oMonitor] READ addr=18 data=100010 
+UVM_INFO scoreboard.sv(129) @ 1870.0ns: uvm_test_top.env.scb [SCB] READ match addr=18 data=100010
+UVM_INFO driver.sv(130) @ 1870.0ns: uvm_test_top.env.m_agent.drvr [CSR_RD] Configration READ transaction ended addr=18 data=100010
+UVM_INFO driver.sv(47) @ 1870.0ns: uvm_test_top.env.m_agent.drvr [driver] Driver CSR_READ Transaction 0 Completed
+UVM_INFO shutdown_sequence.sv(31) @ 1870.0ns: uvm_test_top.env.m_agent.seqr@@shutdown_sequence [SHUTDOWN_SEQ] csr_dropped_count=4
+UVM_INFO shutdown_sequence.sv(32) @ 1870.0ns: uvm_test_top.env.m_agent.seqr@@shutdown_sequence [SHUTDOWN_SEQ] total writes=16 total reads=16
+UVM_INFO shutdown_sequence.sv(33) @ 1870.0ns: uvm_test_top.env.m_agent.seqr@@shutdown_sequence [SHUTDOWN_SEQ] Shutdown Sequence CSR_READ Completed 
+UVM_INFO coverage.sv(96) @ 1970.0ns: uvm_test_top.env.cov_comp [COV] Functional coverage for this test = 91.19%
+UVM_INFO scoreboard.sv(162) @ 1970.0ns: uvm_test_top.env.scb [SCB] Scoreboard completed with matches=78 mismatches=0 (reads checked=43, write responses checked=35)
+UVM_INFO base_test.sv(75) @ 1970.0ns: uvm_test_top [PASS] ******************************************
+UVM_INFO base_test.sv(76) @ 1970.0ns: uvm_test_top [PASS] *********  csr_test : TEST PASSED  *********
+UVM_INFO base_test.sv(77) @ 1970.0ns: uvm_test_top [PASS] ******************************************
+UVM_INFO /pkgs/synopsys/2024/vcs/vcs/V-2023.12-SP2/etc/uvm-1.2/base/uvm_report_server.svh(904) @ 1970.0ns: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :  494
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[CONFIG_SEQ]     1
+[COV]    79
+[CSR_RD]     6
+[CSR_SEQ]     1
+[DRV_WE]    35
+[PASS]     3
+[PKT_CNT]     4
+[RD_E]    43
+[RNTST]     1
+[RST]     1
+[RST_SEQ]     1
+[SCB]    79
+[SHUTDOWN_SEQ]     3
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[driver]    79
+[iMonitor]    78
+[oMonitor]    78
+
+$finish called from file "/pkgs/synopsys/2024/vcs/vcs/V-2023.12-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time   1970.0ns
+"mem_sva.sv", 64: top.dut_inst.sva_inst.WR_WR_COVER, 99 attempts, 19 match
+"mem_sva.sv", 65: top.dut_inst.sva_inst.WR_RD_COVER, 99 attempts, 16 match
+"mem_sva.sv", 66: top.dut_inst.sva_inst.RD_RD_COVER, 99 attempts, 22 match
+"mem_sva.sv", 67: top.dut_inst.sva_inst.DROP_COVER, 99 attempts, 19 match
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, branch, tgl was monitored
+---------------------------------------------------------------------------
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1970000 ps
+CPU Time:      0.440 seconds;       Data structure size:   0.6Mb
+Mon Oct 12 22:12:27 2026

@@ -1,0 +1,23 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT     
+ 96.06 100.00 100.00  80.32 100.00 100.00 top 
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE BRANCH ASSERT          
+   95.23 100.00 100.00  76.16 100.00 100.00 dut_inst 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE BRANCH ASSERT          
+     95.63 100.00 100.00  78.15 100.00 100.00 sva_inst 
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE BRANCH ASSERT        
+  100.00 --     --     100.00 --     --     mem_if 
+
+----------------
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT         
+ 33.33 --     --     --     --      33.33 uvm_pkg 
+

@@ -1,0 +1,16 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT 
+ 93.40 100.00 100.00  80.32 100.00  86.67 
+
+
+Total modules in report: 5
+-------------------------------------------------------------------------------
+SCORE  LINE   COND   TOGGLE BRANCH ASSERT NAME       
+ 33.33 --     --     --     --      33.33 uvm_pkg    
+ 93.80 100.00 100.00  75.20 100.00 --     memory_rtl 
+ 95.63 100.00 100.00  78.15 100.00 100.00 mem_sva    
+100.00 --     --     100.00 --     --     memory_if  
+--     --     --     --     --     --     top        
+

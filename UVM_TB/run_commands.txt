@@ -1,0 +1,74 @@
+UVM MEMORY MODEL - run commands
+All commands are run from the UVM_TB folder:   cd UVM_TB
+Load VCS / Verdi first (same as for any lab run).
+
+------------------------------------------------------------
+1. MAIN FLOW (run in this order)
+------------------------------------------------------------
+
+# Step 1 - fixed RTL, real results, also copies logs + coverage to ../doc
+make clean
+make all
+
+# Step 2 - original RTL, shows the 2 real bugs (illegal_addr_test fails), doc is not touched
+make clean
+make all DEFINES=+define+ORIGINAL_RTL
+
+# Step 3 - back to the fixed RTL so the folder ends on the correct design
+make clean
+make all
+
+------------------------------------------------------------
+2. HOW MANY MESSAGES TO PRINT (UVM_ERROR always prints)
+------------------------------------------------------------
+
+make all                                # default UVM_MEDIUM, about 13 UVM_INFO per test
+make all UVM_VERBOSITY=UVM_NONE         # mostly errors + scoreboard summary + PASS/FAIL
+make all QUIET=1                        # only the summary table + first errors of failed tests
+make all UVM_VERBOSITY=UVM_HIGH         # all messages: driver, monitors, scoreboard matches
+make all UVM_VERBOSITY=UVM_FULL         # everything
+make all SEEDS="1 2 3 4 5"              # more seeds (default is 1 2 3)
+
+------------------------------------------------------------
+3. ONE TEST ONLY
+------------------------------------------------------------
+
+make sim TEST=new_test
+make sim TEST=csr_test UVM_VERBOSITY=UVM_HIGH
+make sim TEST=illegal_addr_test SEED=2 UVM_VERBOSITY=UVM_HIGH
+
+Tests: new_test  csr_test  chip_disable_test  b2b_test  illegal_addr_test  reset_test
+
+------------------------------------------------------------
+4. ERRORS FROM LOGS ALREADY CREATED (no rerun)
+------------------------------------------------------------
+
+grep "UVM_ERROR" logs/regress/*.log         # every error line from every run
+grep "UVM_ERROR :" logs/regress/*.log       # error count of each run
+cat logs/regress/summary.txt                # pass/fail table again
+
+------------------------------------------------------------
+5. COVERAGE AND WAVEFORM
+------------------------------------------------------------
+
+make cov_view                               # open HTML coverage report in firefox
+make cov_gui                                # coverage in Verdi
+make wave TEST=csr_test                     # run one test and open the waveform in Verdi
+make save                                   # copy logs + coverage text reports to ../doc again
+
+------------------------------------------------------------
+6. EXTRA UVM OPTIONS (PLUSARGS) - more examples in runtime_commandlines.txt
+------------------------------------------------------------
+
+make sim TEST=csr_test PLUSARGS="+uvm_set_verbosity=*.iMon*,_ALL_,UVM_HIGH,time,0"   # HIGH only for iMonitor
+make sim TEST=b2b_test PLUSARGS="+uvm_set_verbosity=*.scb,_ALL_,UVM_HIGH,time,0"     # HIGH only for scoreboard
+make all PLUSARGS="+UVM_MAX_QUIT_COUNT=3"                                           # stop a run after 3 errors
+
+Do not use +uvm_set_severity to turn UVM_ERROR into WARNING/INFO for real runs,
+it hides failures and the test would look like it passed.
+
+------------------------------------------------------------
+7. HELP
+------------------------------------------------------------
+
+make help                                   # list of all make targets and options

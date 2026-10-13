@@ -1,0 +1,571 @@
+Group : mem_env_pkg::coverage::cov_mem
+
+===============================================================================
+Group : mem_env_pkg::coverage::cov_mem
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+100.00 100.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/u/koyada/UVM_MEMORY_MODEL_FINAL_2/UVM_TB/coverage.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME                     
+100.00 1      100    1        64           64            top.ptest.me.obj.cov_mem 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   mem_env_pkg::coverage::cov_mem
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 37       0         37      100.00  
+Crosses   24       0         24      100.00  
+
+
+Variables for Group  mem_env_pkg::coverage::cov_mem
+
+
+VARIABLE  EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_kind   2        0         2       100.00  100  1      1        0                    
+cp_addr   21       0         21      100.00  100  1      1        0                    
+cp_region 3        0         3       100.00  100  1      1        0                    
+cp_csr    4        0         4       100.00  100  1      1        0                    
+cp_chip   2        0         2       100.00  100  1      1        0                    
+cp_wdata  3        0         3       100.00  100  1      1        0                    
+cp_last   2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group  mem_env_pkg::coverage::cov_mem
+
+
+CROSS            EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+kind_region_chip 12       0         12      100.00  100  1      1        0                     
+kind_csr         8        0         8       100.00  100  1      1        0                     
+back_to_back     4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_kind
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_kind
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 3879  1        
+read  4053  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_addr
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 21       0         21      100.00  
+
+
+User Defined Bins for cp_addr
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+unmapped 631   1        
+dropped  63    1        
+csr3     73    1        
+chip_en  98    1        
+status   44    1        
+mem_00   464   1        
+mem_01   459   1        
+mem_02   488   1        
+mem_03   415   1        
+mem_04   431   1        
+mem_05   459   1        
+mem_06   443   1        
+mem_07   410   1        
+mem_08   436   1        
+mem_09   435   1        
+mem_0a   416   1        
+mem_0b   450   1        
+mem_0c   423   1        
+mem_0d   422   1        
+mem_0e   407   1        
+mem_0f   465   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_region
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for cp_region
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+unmapped 631   1        
+csr      278   1        
+mem      7023  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_csr
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_csr
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+dropped 63    1        
+csr3    73    1        
+chip_en 98    1        
+status  44    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_chip
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_chip
+
+
+Bins
+
+NAME COUNT AT LEAST 
+on   7557  1        
+off  375   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_wdata
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for cp_wdata
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+others 3647  1        
+ones   108   1        
+zero   124   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_last
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_last
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 3026  1        
+read  3056  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross kind_region_chip
+
+
+Samples crossed: cp_kind cp_region cp_chip
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 12       0         12      100.00          
+
+
+Automatically Generated Cross Bins for kind_region_chip
+
+
+Bins
+
+cp_kind cp_region cp_chip COUNT AT LEAST 
+write   unmapped  on      305   1        
+write   unmapped  off     3     1        
+write   csr       on      69    1        
+write   csr       off     60    1        
+write   mem       on      3295  1        
+write   mem       off     147   1        
+read    unmapped  on      320   1        
+read    unmapped  off     3     1        
+read    csr       on      134   1        
+read    csr       off     15    1        
+read    mem       on      3434  1        
+read    mem       off     147   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross kind_csr
+
+
+Samples crossed: cp_kind cp_csr
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 8        0         8       100.00          
+
+
+Automatically Generated Cross Bins for kind_csr
+
+
+Bins
+
+cp_kind cp_csr  COUNT AT LEAST 
+write   dropped 10    1        
+write   csr3    33    1        
+write   chip_en 78    1        
+write   status  8     1        
+read    dropped 53    1        
+read    csr3    40    1        
+read    chip_en 20    1        
+read    status  36    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross back_to_back
+
+
+Samples crossed: cp_last cp_kind
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 4        0         4       100.00          
+
+
+Automatically Generated Cross Bins for back_to_back
+
+
+Bins
+
+cp_last cp_kind COUNT AT LEAST 
+write   write   846   1        
+write   read    2180  1        
+read    write   2115  1        
+read    read    941   1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : top.ptest.me.obj.cov_mem
+===============================================================================
+Comment: memory model functional coverage
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                           
+100.00 100.00    1      100    1        1            64           64                    mem_env_pkg::coverage::cov_mem 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   top.ptest.me.obj.cov_mem
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 37       0         37      100.00  
+Crosses   24       0         24      100.00  
+
+
+Variables for Group Instance  top.ptest.me.obj.cov_mem
+
+
+VARIABLE  EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_kind   2        0         2       100.00  100  1      1        0                    
+cp_addr   21       0         21      100.00  100  1      1        0                    
+cp_region 3        0         3       100.00  100  1      1        0                    
+cp_csr    4        0         4       100.00  100  1      1        0                    
+cp_chip   2        0         2       100.00  100  1      1        0                    
+cp_wdata  3        0         3       100.00  100  1      1        0                    
+cp_last   2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  top.ptest.me.obj.cov_mem
+
+
+CROSS            EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+kind_region_chip 12       0         12      100.00  100  1      1        0                     
+kind_csr         8        0         8       100.00  100  1      1        0                     
+back_to_back     4        0         4       100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_kind
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_kind
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 3879  1        
+read  4053  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_addr
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 21       0         21      100.00  
+
+
+User Defined Bins for cp_addr
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+unmapped 631   1        
+dropped  63    1        
+csr3     73    1        
+chip_en  98    1        
+status   44    1        
+mem_00   464   1        
+mem_01   459   1        
+mem_02   488   1        
+mem_03   415   1        
+mem_04   431   1        
+mem_05   459   1        
+mem_06   443   1        
+mem_07   410   1        
+mem_08   436   1        
+mem_09   435   1        
+mem_0a   416   1        
+mem_0b   450   1        
+mem_0c   423   1        
+mem_0d   422   1        
+mem_0e   407   1        
+mem_0f   465   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_region
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for cp_region
+
+
+Bins
+
+NAME     COUNT AT LEAST 
+unmapped 631   1        
+csr      278   1        
+mem      7023  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_csr
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_csr
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+dropped 63    1        
+csr3    73    1        
+chip_en 98    1        
+status  44    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_chip
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_chip
+
+
+Bins
+
+NAME COUNT AT LEAST 
+on   7557  1        
+off  375   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_wdata
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for cp_wdata
+
+
+Bins
+
+NAME   COUNT AT LEAST 
+others 3647  1        
+ones   108   1        
+zero   124   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_last
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_last
+
+
+Bins
+
+NAME  COUNT AT LEAST 
+write 3026  1        
+read  3056  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross kind_region_chip
+
+
+Samples crossed: cp_kind cp_region cp_chip
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 12       0         12      100.00          
+
+
+Automatically Generated Cross Bins for kind_region_chip
+
+
+Bins
+
+cp_kind cp_region cp_chip COUNT AT LEAST 
+write   unmapped  on      305   1        
+write   unmapped  off     3     1        
+write   csr       on      69    1        
+write   csr       off     60    1        
+write   mem       on      3295  1        
+write   mem       off     147   1        
+read    unmapped  on      320   1        
+read    unmapped  off     3     1        
+read    csr       on      134   1        
+read    csr       off     15    1        
+read    mem       on      3434  1        
+read    mem       off     147   1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross kind_csr
+
+
+Samples crossed: cp_kind cp_csr
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 8        0         8       100.00          
+
+
+Automatically Generated Cross Bins for kind_csr
+
+
+Bins
+
+cp_kind cp_csr  COUNT AT LEAST 
+write   dropped 10    1        
+write   csr3    33    1        
+write   chip_en 78    1        
+write   status  8     1        
+read    dropped 53    1        
+read    csr3    40    1        
+read    chip_en 20    1        
+read    status  36    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross back_to_back
+
+
+Samples crossed: cp_last cp_kind
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 4        0         4       100.00          
+
+
+Automatically Generated Cross Bins for back_to_back
+
+
+Bins
+
+cp_last cp_kind COUNT AT LEAST 
+write   write   846   1        
+write   read    2180  1        
+read    write   2115  1        
+read    read    941   1        
+
+

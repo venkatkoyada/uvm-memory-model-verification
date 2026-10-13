@@ -1,0 +1,16 @@
+# files made by VCS / URG / Verdi in UVM_TB (doc/ is kept)
+UVM_TB/build/
+UVM_TB/logs/
+UVM_TB/simv
+UVM_TB/simv.daidir/
+UVM_TB/simv.vdb/
+UVM_TB/csrc/
+UVM_TB/urgReport/
+UVM_TB/ucli.key
+UVM_TB/vc_hdrs.h
+UVM_TB/*.vcd
+UVM_TB/*.fsdb
+UVM_TB/*.vpd
+UVM_TB/verdiLog/
+UVM_TB/novas.conf
+UVM_TB/novas.rc

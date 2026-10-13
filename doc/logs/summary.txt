@@ -1,0 +1,26 @@
+
+================================================================
+  REGRESSION SUMMARY
+================================================================
+TEST                 SEED   RESULT UVM_ERRORS
+----                 ----   ------ ----------
+new_test             1      PASS   0
+new_test             2      PASS   0
+new_test             3      PASS   0
+csr_test             1      PASS   0
+csr_test             2      PASS   0
+csr_test             3      PASS   0
+chip_disable_test    1      PASS   0
+chip_disable_test    2      PASS   0
+chip_disable_test    3      PASS   0
+b2b_test             1      PASS   0
+b2b_test             2      PASS   0
+b2b_test             3      PASS   0
+illegal_addr_test    1      PASS   0
+illegal_addr_test    2      PASS   0
+illegal_addr_test    3      PASS   0
+reset_test           1      PASS   0
+reset_test           2      PASS   0
+reset_test           3      PASS   0
+
+Passed: 18  Failed: 0
